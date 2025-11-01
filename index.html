@@ -98,10 +98,13 @@
         #main-nav ul {
             display: flex;
             list-style: none;
+            gap: 1.25rem; /* use gap to space items; allows easier wrapping */
+            flex-wrap: wrap; /* allow items to wrap on narrow screens */
+            align-items: center;
         }
 
         #main-nav li {
-            margin-left: 2rem;
+            margin: 0; /* spacing handled by gap */
         }
 
         #main-nav a {
@@ -293,13 +296,21 @@
             
             #main-header .container {
                 flex-direction: column;
+                padding: 0 1rem; /* reduce horizontal padding on small screens */
             }
             #main-nav ul {
                 margin-top: 1rem;
                 justify-content: center;
+                gap: 0.75rem; /* slightly smaller gap for narrow viewports */
+                width: 100%;
+                flex-wrap: wrap;
             }
             #main-nav li {
-                margin: 0 0.75rem;
+                margin: 0; /* spacing handled by gap and wrapping */
+            }
+            #main-nav a {
+                display: inline-block;
+                padding: 0.4rem 0.2rem; /* increase tap area but keep compact */
             }
             
             #hero {

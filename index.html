@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md. Shariar Islam Mrida - Portfolio</title>
+    <style>
+        /* --- Global Styles --- */
+        :root {
+            --bg-color: #121212;
+            --card-color: #1e1e1e;
+            --text-color: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --primary-color: #00bfa5; /* A teal accent */
+            --border-color: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        h1, h2, h3 {
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.2rem; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; margin-top: 1.5rem;}
+        h3 { font-size: 1.4rem; color: var(--primary-color); }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        /* --- Header / Navigation --- */
+        #main-header {
+            background-color: rgba(18, 18, 18, 0.9);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+
+        #main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #main-header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        #main-nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        #main-nav li {
+            margin-left: 2rem;
+        }
+
+        #main-nav a {
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+        
+        .hero-text {
+            flex: 2;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+        
+        .hero-image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-left: 2rem;
+        }
+
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: var(--card-color);
+            border: 4px solid var(--primary-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            /* TODO: Replace this div with: <img src="your-image-path.jpg" alt="Md. Shariar Islam Mrida" class="profile-pic"> */
+        }
+        
+        .social-links {
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            margin-right: 1.5rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        /* --- Skills Section --- */
+        #skills .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .skill-category h3 {
+            color: var(--text-color);
+            font-size: 1.2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            list-style: none;
+        }
+        
+        .skill-tag {
+            background-color: var(--card-color);
+            color: var(--text-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+        }
+
+        /* --- Experience Section --- */
+        .job {
+            background-color: var(--card-color);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+        
+        .job-header h3 {
+            margin-bottom: 0.25rem;
+        }
+
+        .job-header span {
+            color: var(--text-muted);
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-left: 1rem;
+        }
+        
+        .job p.job-title {
+            font-weight: bold;
+            color: var(--text-color);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .job ul {
+            list-style-position: inside;
+            color: var(--text-muted);
+            padding-left: 0.5rem;
+        }
+        
+        .job li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- Education Section --- */
+        .education-item {
+            background-color: var(--card-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .education-item h3 {
+            margin-bottom: 0.25rem;
+        }
+        
+        .education-item p {
+            margin-bottom: 0.25rem;
+            color: var(--text-color);
+        }
+
+        .education-item .date {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* --- Contact Section --- */
+        #contact ul {
+            list-style: none;
+        }
+        
+        #contact li {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        
+        #contact li strong {
+            color: var(--text-color);
+            margin-right: 0.5rem;
+            min-width: 80px;
+            display: inline-block;
+        }
+
+        /* --- Footer --- */
+        #main-footer {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: var(--card-color);
+            margin-top: 2rem;
+            color: var(--text-muted);
+        }
+        
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.8rem; }
+            
+            #main-header .container {
+                flex-direction: column;
+            }
+            #main-nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            #main-nav li {
+                margin: 0 0.75rem;
+            }
+            
+            #hero {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            
+            .hero-image-container {
+                padding-left: 0;
+                margin-bottom: 2rem;
+            }
+            
+            .profile-pic {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .social-links a {
+                margin: 0 0.75rem;
+            }
+
+            #skills .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .job-header span {
+                margin-left: 0;
+                margin-top: 0.5rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="container">
+            <a href="#" class="logo">Shariar Mrida</a>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section id="hero">
+            <div class="hero-text">
+                <h1>Md. Shariar Islam Mrida</h1>
+                <p class="subtitle">Student at North South University</p>
+                
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/shariar-mrida" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/shariar-mrida" target="_blank">GitHub</a>
+                    <a href="https://leetcode.com/u/ShariarMrida" target="_blank">LeetCode</a>
+                    <a href="https://www.facebook.com/shariar.mrida" target="_blank">Facebook</a>
+                    <a href="https://www.researchgate.net/profile/Md-Shariar-Mrida" target="_blank">ResearchGate</a>
+                </div>
+            </div>
+            <div class="hero-image-container">
+                <div class="profile-pic">
+                    Your Photo Here
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <ul class="skills-list">
+                        <li class="skill-tag">C</li>
+                        <li class="skill-tag">C++</li>
+                        <li class="skill-tag">Java</li>
+                        <li class="skill-tag">Python</li>
+                        <li class="skill-tag">MySQL (SQL)</li>
+                        <li class="skill-tag">HTML</li>
+                        <li class="skill-tag">Git</li>
+                        <li class="skill-tag">Github</li>
+                        <li class="skill-tag">Figma</li>
+                        <li class="skill-tag">Canva</li>
+                        <li class="skill-tag">Adobe Express</li>
+                        <li class="skill-tag">Word</li>
+                        <li class="skill-tag">Excel</li>
+                        <li class="skill-tag">PowerPoint</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <ul class="skills-list">
+                        <li class="skill-tag">Teaching</li>
+                        <li class="skill-tag">Effective Communicator</li>
+                        <li class="skill-tag">Patient Mentor</li>
+                        <li class="skill-tag">Self-Motivated Learner</li>
+                        <li class="skill-tag">Strong Subject Knowledge</li>
+                        <li class="skill-tag">Analytical Thinker</li>
+                        <li class="skill-tag">Collaborative Team Player</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+            
+            <div class="job">
+                <div class="job-header">
+                    <h3>NSU ACM Student Chapter</h3>
+                    <span>2025-Present</span>
+                </div>
+                <p class="job-title">Mentor of R&D Group</p>
+                <ul>
+                    <li>Conducted academic sessions and coding workshops, developed learning resources.</li>
+                    <li>Guided peers in CSE-related courses and mentored teams for competitions.</li>
+                    <li>Collaborated on faculty-led research projects to foster a strong peer-to-peer mentorship culture.</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <h3>InverseMe</h3>
+                    <span>2025-Present</span>
+                </div>
+                <p class="job-title">Community and Outreach Coordinator</p>
+                <ul>
+                    <li>Coordinated outreach campaigns across social media, forums, and targeted communities to attract new users.</li>
+                </ul>
+            </div>
+            
+            <div class="job">
+                <div class="job-header">
+                    <h3>Smart Study Academy</h3>
+                    <span>2024</span>
+                </div>
+                <p class="job-title">ICT Instructor</p>
+                <ul>
+                    <li>Taught the ICT subject to HSC-level students, covering topics such as Computer Fundamentals, Number System, Computer Networking, HTML, and C Programming.</li>
+                </ul>
+            </div>
+            
+            <div class="job">
+                <div class="job-header">
+                    <h3>Private Tutor</h3>
+                    <span>2020-2024</span>
+                </div>
+                <p class="job-title">Math and Science</p>
+                <ul>
+                    <li>Provided one-on-one tutoring in Math and Science to secondary-level English-medium students.</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+
+            <div class="education-item">
+                <h3>North South University</h3>
+                <p>Bachelor of Science in Computer Science and Engineering</p>
+                <p>Studying with a 25% Scholarship</p>
+                <span class="date">2024-2028</span>
+            </div>
+
+            <div class="education-item">
+                <h3>Uttara High School And College</h3>
+                <p>Higher Secondary Certificate (Science)</p>
+                <span class="date">2021-2023</span>
+            </div>
+            
+            <div class="education-item">
+                <h3>Uttara High School and College</h3>
+                <p>Secondary School Certificate (Science)</p>
+                <span class="date">2019-2021</span>
+            </div>
+
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <ul>
+                <li><strong>Phone:</strong> <a href="tel:01552431702">01552431702</a> / <a href="tel:01799667071">01799667071</a></li>
+                <li><strong>Email:</strong> <a href="mailto:shariarmrida03@gmail.com">shariarmrida03@gmail.com</a></li>
+                <li><strong>Alt Email:</strong> <a href="mailto:shariar.mrida.242@northsouth.edu">shariar.mrida.242@northsouth.edu</a></li>
+                <li><strong>Address:</strong> Uttara, Dhaka-1230</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer id="main-footer">
+        <p>&copy; 2025 Md. Shariar Islam Mrida. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('#main-nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
